@@ -5,7 +5,6 @@ const App = () => {
   return(
   <div className="App">
     <header><h1>Flixter</h1>
-    <input type="text" placeholder="Search" />
 </header>
     <MovieList/>
   </div>

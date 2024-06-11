@@ -6,7 +6,9 @@ function MovieList() {
     //initialize state variables
     const [data, setData] = useState({ results: [] });
     const [page, setPage] = useState(1);
-//fetch api data
+    const [searchQuery, setSearchQuery ] = useState();
+    const [fetchURL, setFetchURL] = useState("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=");
+    //fetch api data
     useEffect(() => {
         const options = {
             method: 'GET',
@@ -16,7 +18,7 @@ function MovieList() {
             }
         };
 
-        fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`, options)
+        fetch(`${fetchURL}${page}`, options)
             .then(response => response.json())
             .then(newData => {
                 setData(data => ({
@@ -25,21 +27,32 @@ function MovieList() {
                 }));
             })
             .catch(error => console.error('Error fetching data:', error));
-    }, [page]);
+    }, [page,fetchURL]);
 //load API data into movieCard containers
     const divs = data.results.map((movie, index) => (
         <MovieCard
-            key={index}
-            movieImage={`http://image.tmdb.org/t/p/w342${movie.poster_path}`}
+            key={movie.id}
+            movieImage={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
             movieRating={movie.vote_average}
             movieTitle={movie.original_title}
         />
     ));
+    // Search functionality
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+      };
+      function submitSearch(searchQuery){
+        setFetchURL(`https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=`);
+      }
 //return list of new MovieCard containers
     return (
+        <div className="movieList">
+            <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search" />
+            <button onClick={() => submitSearch(searchQuery)}>Search🔍</button>
         <div className="movieListContainer">
             {divs}
             <button onClick={() => setPage(page+1)}>Load More</button>
+        </div>
         </div>
     );
 }

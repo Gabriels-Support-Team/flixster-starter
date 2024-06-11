@@ -4,3 +4,15 @@
     justify-content: flex-start; /* Align items to the start of the container */
 
 }
+.movieListContainerInactive{
+    display:none;
+    flex-wrap: wrap; /* Enable wrapping of items */
+    justify-content: flex-start; /* Align items to the start of the container */
+}
+
+.searchInactive{
+    display:none;
+}
+.searchActive{
+    display:block;
+}

@@ -8,6 +8,7 @@ function MovieList() {
     const [page, setPage] = useState(1);
     const [searchQuery, setSearchQuery ] = useState();
     const [fetchURL, setFetchURL] = useState("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=");
+    const [showSearch,setSearchActive] = useState(false);
     //fetch api data
     useEffect(() => {
         const options = {
@@ -43,13 +44,26 @@ function MovieList() {
       };
       function submitSearch(searchQuery){
         setFetchURL(`https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=`);
+        setPage(1)
+        setSearchActive(!showSearch)
+      }
+      function submitNowPlaying(){
+        setFetchURL("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=");
+        setPage(1)
+        setSearchActive(false)
       }
 //return list of new MovieCard containers
     return (
-        <div className="movieList">
+        <div className="movieList"> 
+        <div>
+            <button onClick={() =>{setSearchActive(!showSearch)}}>Search</button>
+            <button onClick={() =>{submitNowPlaying()}}>Now Playing</button>
+        </div>
+        <div className={showSearch ? 'searchActive':'searchInactive'}>
             <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder="Search" />
             <button onClick={() => submitSearch(searchQuery)}>Search🔍</button>
-        <div className="movieListContainer">
+            </div>
+        <div className={showSearch ? 'movieListContainerInactive':'movieListContainer'}>
             {divs}
             <button onClick={() => setPage(page+1)}>Load More</button>
         </div>

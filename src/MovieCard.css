@@ -1,11 +1,15 @@
 .movieCard{
+  display:flex;
+  flex-direction:column;
     margin: '10px';
     padding: '10px';
     width:220px;
-    box-shadow:15px 9px 9px;
     margin:30px;
-    background-color: white;
+    background-color: rgba(24,24,24,255);
     border-radius: 5px;
+    /* border-left: 3px  solid red; */
+    border-bottom: 5px  solid red;
+
 }
 @media (max-width: 700px) {
 .movieCard{
@@ -18,8 +22,8 @@
     border-radius: 5px;
 }
 .movieCard:hover {
-    box-shadow:15px 9px 9px;
-    transform: scale(1.05) rotate(-1deg);
+  box-shadow:15px 9px 9px black;
+  transform: scale(1.05) ;
 
   }
 

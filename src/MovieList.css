@@ -28,6 +28,7 @@
 .toggleButtons{
     display:flex;
     justify-content:space-evenly;
+    
 }
 .toggleButtons button{
     width:45%;
@@ -36,6 +37,9 @@
     margin-top: 0px;
     margin-bottom: 1px;
     padding:20px;
+    background-color: rgba(24,24,24,255);
+    border-radius: 310px;
+
 }
 .loadMoreButton{
     width:800px;

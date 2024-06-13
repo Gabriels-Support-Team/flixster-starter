@@ -11,22 +11,9 @@
     z-index:1;
   }
   .modal-content {
-    background: white;
-    padding: 20px;
+    background-color: rgba(24,24,24,255);
+        padding: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  .modal-enter {
-  opacity: 0;
-}
-.modal-enter-active {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-.modal-exit {
-  opacity: 1;
-}
-.modal-exit-active {
-  opacity: 0;
-  transition: opacity 300ms;
-}
+  

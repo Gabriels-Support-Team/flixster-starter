@@ -25,13 +25,8 @@ function CreateModal({ isOpen, close, movie }) {
 
     if (!isOpen) return null;
     if (movieDetails) return (
-        <CSSTransition
-      in={isOpen}
-      timeout={300}
-      classNames="modal"
-      unmountOnExit
-    >
-        <div className="modal">
+     
+        <div className="modal-overlay">
             <div className="modal-content">
                 <h1>{movie.original_title}</h1>
                 <img src={`https://image.tmdb.org/t/p/w342${movie.backdrop_path}`} alt={movie.original_title}></img>
@@ -44,7 +39,6 @@ function CreateModal({ isOpen, close, movie }) {
                 <button onClick={close}>X</button>
             </div>
         </div>
-        </CSSTransition>
     );
 }
 

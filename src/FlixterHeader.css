@@ -1,9 +1,21 @@
 .App-header {
-    background-color: #282c34;
+    background-color: rgba(24,24,24,255);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     color: white;
-    padding: 20px;
+    padding: 0px;
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  .title{
+    size:10px
+  }
+  .title{
+    color:rgba(228,9,18,255);
   }

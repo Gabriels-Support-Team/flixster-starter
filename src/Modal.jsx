@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Modal.css'; // Importing the CSS for styling
+import { CSSTransition } from 'react-transition-group';
+
 
 function CreateModal({ isOpen, close, movie }) {
     const [movieDetails, setMovieDetails] = useState();
@@ -23,7 +25,13 @@ function CreateModal({ isOpen, close, movie }) {
 
     if (!isOpen) return null;
     if (movieDetails) return (
-        <div className="modal-overlay">
+        <CSSTransition
+      in={isOpen}
+      timeout={300}
+      classNames="modal"
+      unmountOnExit
+    >
+        <div className="modal">
             <div className="modal-content">
                 <h1>{movie.original_title}</h1>
                 <img src={`https://image.tmdb.org/t/p/w342${movie.backdrop_path}`} alt={movie.original_title}></img>
@@ -36,6 +44,7 @@ function CreateModal({ isOpen, close, movie }) {
                 <button onClick={close}>X</button>
             </div>
         </div>
+        </CSSTransition>
     );
 }
 

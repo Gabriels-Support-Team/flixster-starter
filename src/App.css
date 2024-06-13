@@ -26,3 +26,8 @@
     flex-direction: column;
   }
 }
+
+.title{
+  font-size: 70px;
+  margin:10px;
+}

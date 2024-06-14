@@ -1,11 +1,8 @@
 .App {
   text-align: center;
-  background-color: rgba(20,20,20,255);
-  color:white;
-
+  background-color: rgba(20, 20, 20, 255);
+  color: white;
 }
-
-
 
 @media (max-width: 600px) {
   .movie-card {
@@ -22,11 +19,11 @@
   }
 }
 
-.title{
+.title {
   font-size: 70px;
-  margin:10px;
+  margin: 10px;
 }
-.selectContainer{
-  display:flex;
+.selectContainer {
+  display: flex;
   justify-content: space-around;
 }

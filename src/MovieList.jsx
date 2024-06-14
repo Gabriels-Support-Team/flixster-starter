@@ -12,6 +12,10 @@ function MovieList({
   genreSelection,
   page,
   setPage,
+  toggleLiked,
+  likedMovies,
+  toggleWatched,
+  watchedMovies,
 }) {
   //initialize state variables
   const [data, setData] = useState({ results: [] });
@@ -20,6 +24,7 @@ function MovieList({
   const [showSearch, setSearchActive] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMovie, setModalMovie] = useState();
+
   //fetch api data
   useEffect(() => {
     const options = {
@@ -55,6 +60,10 @@ function MovieList({
       openModal={() => {
         populateModal(movie);
       }}
+      toggleLiked={toggleLiked}
+      likedMovies={likedMovies}
+      toggleWatched={toggleWatched}
+      watchedMovies={watchedMovies}
     />
   ));
   // Search functionality

@@ -1,35 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MovieCard.css";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
-import { CiBookmarkCheck } from "react-icons/ci";
 
-function MovieCard({ movieImage, movieTitle, movieRating, openModal }) {
-  const [favorite, setFavorite] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
+function MovieCard({
+  movieImage,
+  movieTitle,
+  movieRating,
+  openModal,
+  toggleLiked,
+  likedMovies,
+  toggleWatched,
+  watchedMovies,
+}) {
   const handleChange = (event) => {
-    setIsChecked(event.target.checked);
+    toggleWatched(movieTitle);
   };
+
+  const isFavorite = !!likedMovies[movieTitle];
+
   return (
     <div className="movieCard" onClick={openModal}>
-      <img className="movieImage" src={movieImage}></img>
+      <img className="movieImage" src={movieImage} alt={movieTitle}></img>
       <p className="movieTitle">{movieTitle}</p>
       <p className="movieRating">Rating: {movieRating}</p>
       <div className="toggleContainer">
         <input
           className="checkBox"
           type="checkbox"
-          checked={isChecked}
+          checked={watchedMovies.includes(movieTitle)}
           onChange={handleChange}
           onClick={(event) => event.stopPropagation()}
         />
-        {favorite ? (
+        {isFavorite ? (
           <FaHeart
             className="favorite"
             size="2em"
             onClick={(event) => {
-              setFavorite(!favorite);
               event.stopPropagation();
+              toggleLiked(movieTitle);
             }}
           />
         ) : (
@@ -37,8 +46,8 @@ function MovieCard({ movieImage, movieTitle, movieRating, openModal }) {
             className="favorite"
             size="2em"
             onClick={(event) => {
-              setFavorite(!favorite);
               event.stopPropagation();
+              toggleLiked(movieTitle);
             }}
           />
         )}
@@ -46,4 +55,5 @@ function MovieCard({ movieImage, movieTitle, movieRating, openModal }) {
     </div>
   );
 }
+
 export default MovieCard;

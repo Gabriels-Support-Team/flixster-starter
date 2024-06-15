@@ -42,5 +42,9 @@
   justify-content: space-between;
 }
 .checkBox {
-  margin: 15px;
+  margin: 10px;
+}
+.checkBoxContainer {
+  display: flex;
+  align-items: center;
 }

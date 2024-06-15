@@ -25,13 +25,17 @@ function MovieCard({
       <p className="movieTitle">{movieTitle}</p>
       <p className="movieRating">Rating: {movieRating}</p>
       <div className="toggleContainer">
-        <input
-          className="checkBox"
-          type="checkbox"
-          checked={watchedMovies.includes(movieTitle)}
-          onChange={handleChange}
-          onClick={(event) => event.stopPropagation()}
-        />
+        <div className="checkBoxContainer">
+          <input
+            className="checkBox"
+            type="checkbox"
+            checked={watchedMovies.includes(movieTitle)}
+            onChange={handleChange}
+            onClick={(event) => event.stopPropagation()}
+            id={`watched-${movieTitle}`}
+          />
+          <label htmlFor={`watched-${movieTitle}`}>Watched</label>
+        </div>
         {isFavorite ? (
           <FaHeart
             className="favorite"

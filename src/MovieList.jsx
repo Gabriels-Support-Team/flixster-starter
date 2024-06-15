@@ -24,14 +24,16 @@ function MovieList({
   const [showSearch, setSearchActive] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMovie, setModalMovie] = useState();
-
+  if (!import.meta.env.VITE_API_KEY) {
+    console.error("API key is undefined. Check your environment variables.");
+  }
   //fetch api data
   useEffect(() => {
     const options = {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4M2Y0ZGE0MjI0M2IxNDljZmRjM2E2YmM4MWI1OGVkNSIsInN1YiI6IjY2Njc2NGRlMDdmNzg5ZGYzMTk5ZmI2MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TpNQ6V0IuyirQEQTh3f7XMeE7SOItQeymtCD1oCUy8Y`,
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
       },
     };
     fetch(

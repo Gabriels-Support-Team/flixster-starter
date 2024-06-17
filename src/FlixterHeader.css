@@ -10,8 +10,8 @@
   top: 0; /* Align to the top */
   left: 0; /* Align to the left */
   width: 100%; /* Full width */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better visibility */
-  z-index: 1000; /* Ensure it's above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .title {

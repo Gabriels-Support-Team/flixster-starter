@@ -13,7 +13,8 @@ function MovieCard({
   toggleWatched,
   watchedMovies,
 }) {
-  const handleChange = (event) => {
+  //toggles movie as watched
+  const toggleWathchedInternal = (event) => {
     toggleWatched(movieTitle);
   };
 
@@ -30,7 +31,7 @@ function MovieCard({
             className="checkBox"
             type="checkbox"
             checked={watchedMovies.includes(movieTitle)}
-            onChange={handleChange}
+            onChange={toggleWathchedInternal}
             onClick={(event) => event.stopPropagation()}
             id={`watched-${movieTitle}`}
           />

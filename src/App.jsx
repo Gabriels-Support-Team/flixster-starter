@@ -19,7 +19,7 @@ const App = () => {
     return savedLikes ? JSON.parse(savedLikes) : {};
   });
   const [watchedMovies, setWatchedMovies] = useState([]);
-
+  //function to like movies
   function toggleLiked(movieTitle) {
     setLikedMovies((prevLikes) => {
       const updatedLikes = {
@@ -30,7 +30,7 @@ const App = () => {
       return updatedLikes;
     });
   }
-
+  //function to check movie as watched
   function toggleWatched(movieName) {
     setWatchedMovies((prevWatched) => {
       const isWatched = prevWatched.includes(movieName);
@@ -41,6 +41,7 @@ const App = () => {
       }
     });
   }
+  //fetching movies
   const options = {
     method: "GET",
     headers: {
